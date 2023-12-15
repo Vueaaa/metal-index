@@ -21,10 +21,40 @@
         {{ nav.title }}
       </div>
     </div>
+    <div class="navs show-icon">
+      <div
+        class="icon-bg"
+        title="前端导航"
+        @click="router.push({ path: '/navigation' })"
+      >
+        <i class="iconfont icon-daohang"></i>
+      </div>
+      <div
+        class="icon-bg"
+        title="warbler-cli"
+        @click="router.push({ path: '/warbler/cli' })"
+      >
+        <div>cli</div>
+      </div>
+      <div
+        class="icon-bg"
+        title="warbler-js"
+        @click="router.push({ path: '/warbler/js' })"
+      >
+        <div>js</div>
+      </div>
+      <div
+        class="icon-bg"
+        title="一尾流莺"
+        @click="router.push({ path: '/warblerCenter' })"
+      >
+        <i class="iconfont icon-jianli"></i>
+      </div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 const navs = [
   {
@@ -51,7 +81,10 @@ const navs = [
 
 const router = useRouter();
 const route = useRoute();
+// onMounted(() => {
+//     console.log(route.path,'12');
 
+// })
 //点击 Tab 切换页面
 const changeCurrentNab = (path: string) => {
   router.push({ path });
@@ -71,6 +104,16 @@ const currentIndex = computed(() =>
   height: var(--warbler-header-height);
   position: fixed;
   top: 0;
+  .show-title {
+    @media (max-width: 700px) {
+      display: none !important;
+    }
+  }
+  .show-icon {
+    @media (min-width: 700px) {
+      display: none !important;
+    }
+  }
   .mask {
     width: 100%;
     height: 100%;
@@ -81,26 +124,27 @@ const currentIndex = computed(() =>
   }
   .logo {
     display: flex;
-    justify-content: flex-start;/* 从行首起始位置开始排列 */
-    align-items: center;/* 控制子元素在交叉轴上的对齐 */
+    justify-content: flex-start; /* 从行首起始位置开始排列 */
+    align-items: center; /* 控制子元素在交叉轴上的对齐 */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left:var(--page-padding) .logo-img-box {
+        left: var(--page-padding);
+    .logo-img-box {
       width: 32px;
       height: 32px;
-      .logo-img {
-        width: 100%;
-        height: 100%;
-      }
-      .logo-title {
-        font-size: 24px;
-        margin-left: 8px;
-        background: linear-gradient(-60deg, #8700ff 0, #ff009e 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+    }
+    .logo-img {
+      width: 100%;
+      height: 100%;
+    }
+    .logo-title {
+      font-size: 24px;
+      margin-left: 8px;
+      background: linear-gradient(-60deg, #8700ff 0, #ff009e 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
   .navs {
@@ -119,6 +163,18 @@ const currentIndex = computed(() =>
     .active {
       color: var(--warbler-brand);
     }
+  }
+  .icon-bg {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    background-color: var(--warbler-bg-soft);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+    cursor: pointer;
   }
 }
 </style>
