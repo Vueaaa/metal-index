@@ -8,7 +8,7 @@
           class="logo-img"
         />
       </div>
-      <div class="logo-titie fwb">Warbler-FE</div>
+      <div class="logo-title fwb">Warbler-FE</div>
     </div>
     <div class="navs show-title">
       <div
@@ -118,7 +118,7 @@ const currentIndex = computed(() =>
     width: 100%;
     height: 100%;
     background-color: var(--warbler-bg-half-opacity);
-    // box-shadow: 0 -1px 0 hsla(0, 0%, 100%, 0.1);
+    box-shadow: 0 -1px 0 hsla(0, 0%, 100%, 0.1) inset;
     // backdrop-filter CSS 属性可以让你为一个元素后面区域添加图形效果（如模糊或颜色偏移）。
     backdrop-filter: blur(12px);
   }

@@ -4,7 +4,7 @@ const routes = [
     {
       path: '/',
       name: 'homepage',
-    //   component: () => import(/* webpackChunkName: "homepage" */ '@v/homepage/index.vue'),
+      component: () => import(/* webpackChunkName: "homepage" */ '@/views/homepage/index.vue'),
       children: [],
     },
     {
@@ -34,7 +34,7 @@ const routes = [
     {
       path: '/warblerCenter',
       name: 'warblerCenter',
-    //   component: () => import(/* webpackChunkName: "warblerCenter" */ '@v/warblerCenter/index.vue'),
+      component: () => import(/* webpackChunkName: "warblerCenter" */ '@/views/warblerCenter/index.vue'),
       children: [],
     },
     {
